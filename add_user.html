@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Add User{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Add New User</h2>
+
+<div class="form-container">
+    <form method="post" class="styled-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit-btn">Create User</button>
+    </form>
+</div>
+
+<div class="back-container">
+    <a href="{% url 'admin_dashboard' %}" class="back-btn">Back to Dashboard</a>
+</div>
+
+<style>
+    /* 📌 عنوان صفحه */
+    .page-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #15558c;
+        margin-bottom: 20px;
+    }
+
+    /* 📌 استایل کلی فرم */
+    .form-container {
+        width: 50%;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .styled-form input,
+    .styled-form select,
+    .styled-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #15558c;
+        border-radius: 5px;
+        font-size: 1rem;
+        background: #f8f9fa;
+        margin-bottom: 10px;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+        box-sizing: border-box;
+    }
+
+    .styled-form input:focus,
+    .styled-form select:focus,
+    .styled-form textarea:focus {
+        border-color: #cfa942;
+        box-shadow: 0px 0px 8px rgba(207, 169, 66, 0.6);
+        background: white;
+    }
+
+    /* 📌 لیبل‌های فرم */
+    .styled-form label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #15558c;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* 📌 دکمه Submit */
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background: #15558c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out, box-shadow 0.3s;
+        font-family: "Times New Roman", serif;
+    }
+
+    .submit-btn:hover {
+        background: #0e3e6e;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 📌 دکمه بازگشت */
+    .back-container {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .back-btn {
+        display: inline-block;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.8);
+        color: #15558c;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+        border: 2px solid #15558c;
+        transition: all 0.3s ease-in-out;
+        font-family: "Times New Roman", serif;
+    }
+
+    .back-btn:hover {
+        background: #cfa942;
+        color: white;
+        border-color: transparent;
+    }
+</style>
+{% endblock %}
